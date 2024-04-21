@@ -30,8 +30,16 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication'
         if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
-    )]
+    )],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DATETIME_FORMAT': '%d %b %Y',
 }
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
@@ -52,6 +60,8 @@ SECRET_KEY = 'django-insecure-%jt8(2bhu$t!1cr5*3yq=g@*u5bjw9uthdl!ase0(r#0n@62@4
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-gayatrig19-drfapi-jkd4q1pyng3.ws-eu110.gitpod.io']
+
+CSRF_TRUSTED_ORIGINS= ['https://*.gitpod.io']
 
 
 # Application definition
