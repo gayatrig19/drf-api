@@ -61,7 +61,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'https://djangorest-api-project-d779bee7fbda.herokuapp.com/']
+ALLOWED_HOSTS = [
+    'localhost',
+    'djangorest-api-project-d779bee7fbda.herokuapp.com',
+    '8000-gayatrig19-drfapi-jkd4q1pyng3.ws-eu110.gitpod.io',
+    ]
 
 CSRF_TRUSTED_ORIGINS= ['https://*.gitpod.io']
 
